@@ -1,0 +1,87 @@
+# ==========================================
+#   DailyRewards — все тексты
+#   Цвета: &a, &c... или HEX: &#FF8800
+#   Пустая строка "" отключает сообщение
+# ==========================================
+
+prefix: "&fServerName &7»"
+
+menu:
+  title: "&6Ежедневные награды"
+  donate-title: "&6Награда за неделю"
+  filler-name: " "
+
+# %day% — номер дня, %time% — сколько осталось, %rewards% — награды из config.yml
+items:
+  available:
+    name: "&aДень %day% — забрать!"
+    lore:
+      - "&7Награда:"
+      - "%rewards%"
+      - ""
+      - "&eНажми, чтобы получить"
+  claimed:
+    name: "&7День %day% — получено"
+    lore:
+      - "&7Награда:"
+      - "%rewards%"
+      - ""
+      - "&8Уже у тебя"
+  waiting:
+    name: "&eДень %day%"
+    lore:
+      - "&7Награда:"
+      - "%rewards%"
+      - ""
+      - "&7Откроется через &e%time%"
+  locked:
+    name: "&cДень %day% — ???"
+    lore:
+      - "&8Забери прошлую награду"
+  donate-button:
+    name: "&6Забрать донат"
+    lore:
+      - "&7Ты прошёл все дни!"
+      - "&eНажми, чтобы получить награду"
+  donate-used:
+    name: "&7Донат получен"
+    lore:
+      - "&8Награда уже у тебя"
+
+chat:
+  claimed: "%prefix% &aТы получил награду за день %day%!"
+  wait: "%prefix% &eСледующая награда через %time%"
+  already: "%prefix% &cТы уже забрал эту награду"
+  locked: "%prefix% &cЭтот день пока скрыт"
+  reset: "%prefix% &cТы пропустил день, серия начинается заново"
+  finished: "%prefix% &aВы прошли ежедневный квест!"
+  complete: "%prefix% &aТы забрал все награды и получил бонус!"
+  inventory-full: "%prefix% &cОсвободи место в инвентаре"
+  join-available: "%prefix% &aТебя ждёт ежедневная награда! Пиши &e/daily"
+  no-permission: "%prefix% &cУ тебя нет прав"
+  only-players: "Эту команду может использовать только игрок"
+  reload: "%prefix% &aКонфиг и сообщения перезагружены"
+  player-not-found: "%prefix% &cИгрок %player% не найден"
+  reset-player: "%prefix% &aПрогресс игрока %player% сброшен"
+  setday-player: "%prefix% &aИгроку %player% установлен день %day%"
+  invalid-day: "%prefix% &cДень должен быть числом от 1 до %max%"
+  usage:
+    - "&6DailyRewards — команды:"
+    - "&e/daily &7— открыть меню"
+    - "&e/daily reload &7— перезагрузить конфиг"
+    - "&e/daily reset <ник> &7— сбросить прогресс"
+    - "&e/daily setday <ник> <день> &7— установить день"
+
+titles:
+  claim:
+    title: "&aДень %day%"
+    subtitle: "&7Награда получена!"
+  complete:
+    title: "&aПоздравляем!"
+    subtitle: "&eТы прошёл неделю /daily"
+
+# %h% — часы, %m% — минуты, %s% — секунды
+time:
+  hours: "%h% ч %m% мин"
+  minutes: "%m% мин %s% сек"
+  seconds: "%s% сек"

@@ -1,0 +1,20 @@
+name: DailyRewards
+version: '${version}'
+
+main: me.playerp6.dailyRewards.DailyRewards
+api-version: '26.3'
+load: POSTWORLD
+
+commands:
+  daily:
+    description: Ежедневные награды
+    usage: /daily
+    aliases: [reward, rewards]
+
+permissions:
+  daily.use:
+    description: Открывать меню /daily
+    default: true
+  daily.admin:
+    description: Команды /daily reload, reset, setday
+    default: op

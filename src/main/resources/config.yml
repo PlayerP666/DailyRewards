@@ -1,0 +1,133 @@
+# ==========================================
+#   DailyRewards — основные настройки
+#   Все тексты находятся в messages.yml
+# ==========================================
+
+settings:
+  # Через сколько часов открывается следующий день (можно дробное: 0.01 = ~36 сек)
+  cooldown-hours: 24
+  # Сбрасывать ли серию, если игрок пропустил день
+  reset-enabled: true
+  # Сколько часов даётся, чтобы забрать открывшийся день
+  reset-after-hours: 24
+  # true — после доната неделя начинается заново
+  # false — после доната /daily закрывается навсегда
+  restart-after-finish: false
+  # Закрывать меню после получения награды
+  close-menu-on-claim: false
+  # Если инвентарь полный: true — выкинуть предметы на землю,
+  # false — не выдавать награду (нужен хотя бы один пустой слот)
+  full-inventory-drop: true
+
+# Напоминание при входе на сервер, если награда доступна
+join-notify:
+  enabled: true
+  delay-seconds: 3
+
+menu:
+  # Количество рядов (1–6)
+  rows: 3
+  # Слоты для дней по порядку (0 — левый верхний угол)
+  day-slots: [10, 11, 12, 13, 14, 15, 16]
+  # Слот кнопки доната
+  donate-slot: 13
+  # Заполнение пустых слотов
+  filler:
+    enabled: true
+    material: GRAY_STAINED_GLASS_PANE
+  # Показывать номер дня количеством предметов на иконке
+  day-number-as-amount: true
+  # Автообновление открытого меню (таймер и статусы дней)
+  auto-update:
+    enabled: true
+    # Как часто обновлять, в тиках (20 = 1 секунда)
+    interval-ticks: 20
+
+# Внешний вид дней. glow — эффект зачарования
+states:
+  available:
+    material: GREEN_CONCRETE
+    glow: true
+  claimed:
+    material: GRAY_CONCRETE
+    glow: false
+  waiting:
+    material: YELLOW_CONCRETE
+    glow: false
+  locked:
+    material: BARRIER
+    glow: false
+
+# Награды за дни. Номера должны идти подряд: 1, 2, 3...
+# Дней может быть сколько угодно, но не больше, чем слотов в day-slots
+# items — предметы в формате МАТЕРИАЛ:КОЛИЧЕСТВО
+# commands — команды от консоли (%player% — ник, %day% — день)
+# display — как награда отображается в описании предмета (%rewards%)
+days:
+  1:
+    items: ["DIAMOND:5"]
+    commands: []
+    display: ["&b• 5 алмазов"]
+  2:
+    items: ["IRON_INGOT:16"]
+    commands: []
+    display: ["&f• 16 железных слитков"]
+  3:
+    items: ["GOLD_INGOT:8"]
+    commands: []
+    display: ["&6• 8 золотых слитков"]
+  4:
+    items: ["EMERALD:5"]
+    commands: []
+    display: ["&a• 5 изумрудов"]
+  5:
+    items: ["DIAMOND:10"]
+    commands: []
+    display: ["&b• 10 алмазов"]
+  6:
+    items: ["GOLDEN_APPLE:3"]
+    commands: []
+    display: ["&e• 3 золотых яблока"]
+  7:
+    items: ["NETHERITE_INGOT:1"]
+    commands: []
+    display: ["&8• 1 незеритовый слиток"]
+
+# Награда за прохождение всех дней
+completion:
+  commands:
+    - "lp user %player% parent addtemp vip 7d"
+  button:
+    material: NETHER_STAR
+    glow: true
+  button-used:
+    material: GRAY_CONCRETE
+    glow: false
+
+# Звуки. Названия — как в /playsound. Пустая строка отключает звук
+sounds:
+  enabled: true
+  open:
+    sound: "minecraft:block.chest.open"
+    volume: 1.0
+    pitch: 1.0
+  claim:
+    sound: "minecraft:entity.player.levelup"
+    volume: 1.0
+    pitch: 1.2
+  error:
+    sound: "minecraft:entity.villager.no"
+    volume: 1.0
+    pitch: 1.0
+  complete:
+    sound: "minecraft:ui.toast.challenge_complete"
+    volume: 1.0
+    pitch: 1.0
+
+# Title на экране. Время в тиках (20 тиков = 1 секунда)
+titles:
+  claim-enabled: true
+  complete-enabled: true
+  fade-in: 10
+  stay: 60
+  fade-out: 20
